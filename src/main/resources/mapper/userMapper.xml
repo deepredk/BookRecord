@@ -26,4 +26,10 @@
         WHERE
             User.user_id = #{id}
     </select>
+
+    <select id="save" parameterType="map" resultType="Integer">
+        INSERT INTO User (user_name)
+        VALUES (#{userName})
+        RETURNING user_id
+    </select>
 </mapper>

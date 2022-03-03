@@ -13,4 +13,8 @@ public class UserService {
     public UserDto getUserInfo(Integer userId) {
         return userMapper.findById(userId);
     }
+
+    public Integer join(String userName) {
+        return userMapper.save(userName);
+    }
 }
