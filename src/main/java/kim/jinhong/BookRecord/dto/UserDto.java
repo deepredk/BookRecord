@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class UserDto {
-    private int userId;
+    private Integer userId;
     private String userName;
     private List<BookDto> books;
 }
