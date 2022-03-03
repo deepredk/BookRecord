@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://book-record.cuheeferpngt.ap-northeast-2.rds.amazonaws.com:3306/BookRecord?serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+    username: ${USER}
+    password: ${PASSWORD} 
