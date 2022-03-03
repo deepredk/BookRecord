@@ -16,7 +16,7 @@
         </collection>
     </resultMap>
 
-    <select id="findOne" parameterType="Int" resultMap="userResultMap">
+    <select id="findById" parameterType="Int" resultMap="userResultMap">
         SELECT
             User.user_id, User.user_name, Book.Book_id, Book.Book_name, Book.Book_publisher, Book. Book_author
         FROM

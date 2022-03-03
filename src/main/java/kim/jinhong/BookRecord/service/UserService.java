@@ -11,6 +11,6 @@ public class UserService {
     private UserMapper userMapper;
 
     public UserDto getUserInfo(Integer userId) {
-        return userMapper.findOne(userId);
+        return userMapper.findById(userId);
     }
 }
