@@ -40,4 +40,9 @@
             book_author = #{bookAuthor}
         WHERE book_id = #{bookId}
     </update>
+
+    <delete id="deleteById" parameterType="map">
+        DELETE FROM Book
+        WHERE book_id = #{bookId}
+    </delete>
 </mapper>

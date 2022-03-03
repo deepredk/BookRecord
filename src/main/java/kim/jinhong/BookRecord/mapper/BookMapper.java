@@ -14,4 +14,6 @@ public interface BookMapper {
     Integer save(String bookName, String bookPublisher, String bookAuthor);
 
     void updateById(Integer bookId, String bookName, String bookPublisher, String bookAuthor);
+
+    void deleteById(Integer bookId);
 }

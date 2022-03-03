@@ -48,4 +48,10 @@ public class BookController {
         bookService.modifyBook(bookId, bookName, bookPublisher, bookAuthor);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @DeleteMapping("/books/{bookId}")
+    public ResponseEntity modifyBook(@PathVariable Integer bookId) {
+        bookService.deleteBook(bookId);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

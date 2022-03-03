@@ -27,4 +27,8 @@ public class BookService {
     public void modifyBook(Integer bookId, String bookName, String bookPublisher, String bookAuthor) {
         bookMapper.updateById(bookId, bookName, bookPublisher, bookAuthor);
     }
+
+    public void deleteBook(Integer bookId) {
+        bookMapper.deleteById(bookId);
+    }
 }
