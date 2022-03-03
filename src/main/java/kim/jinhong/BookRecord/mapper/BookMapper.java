@@ -9,4 +9,5 @@ import java.util.List;
 public interface BookMapper {
     List<BookDto> findAll();
     BookDto findById(Integer bookId);
+    Integer save(String bookName, String bookPublisher, String bookAuthor);
 }

@@ -19,4 +19,8 @@ public class BookService {
     public BookDto getBook(Integer bookId) {
         return bookMapper.findById(bookId);
     }
+
+    public Integer addBook(String bookName, String bookPublisher, String bookAuthor) {
+        return bookMapper.save(bookName, bookPublisher, bookAuthor);
+    }
 }
