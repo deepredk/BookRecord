@@ -32,4 +32,12 @@
         VALUES (#{bookName}, #{bookPublisher}, #{bookAuthor})
         RETURNING book_id
     </select>
+
+    <update id="updateById" parameterType="map">
+        UPDATE Book
+        SET book_name = #{bookName},
+            book_publisher = #{bookPublisher},
+            book_author = #{bookAuthor}
+        WHERE book_id = #{bookId}
+    </update>
 </mapper>

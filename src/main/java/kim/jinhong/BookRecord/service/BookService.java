@@ -23,4 +23,8 @@ public class BookService {
     public Integer addBook(String bookName, String bookPublisher, String bookAuthor) {
         return bookMapper.save(bookName, bookPublisher, bookAuthor);
     }
+
+    public void modifyBook(Integer bookId, String bookName, String bookPublisher, String bookAuthor) {
+        bookMapper.updateById(bookId, bookName, bookPublisher, bookAuthor);
+    }
 }

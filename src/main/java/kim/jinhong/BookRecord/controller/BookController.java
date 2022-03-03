@@ -3,6 +3,7 @@ package kim.jinhong.BookRecord.controller;
 import kim.jinhong.BookRecord.dto.BookDto;
 import kim.jinhong.BookRecord.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -37,5 +38,14 @@ public class BookController {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/books/{bookId}")
+    public ResponseEntity modifyBook(@PathVariable Integer bookId,
+                                                 @RequestParam String bookName,
+                                                 @RequestParam String bookPublisher,
+                                                 @RequestParam String bookAuthor) {
+        bookService.modifyBook(bookId, bookName, bookPublisher, bookAuthor);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
