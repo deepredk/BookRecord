@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kim.jinhong.BookRecord.mapper.UserBookMapper">
+    <insert id="save" parameterType="map">
+        INSERT INTO User_Book (user_id, book_id)
+        VALUES (#{userId}, #{bookId})
+    </insert>
+</mapper>

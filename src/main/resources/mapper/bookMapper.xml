@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kim.jinhong.BookRecord.mapper.BookMapper">
+    <resultMap type="BookDto" id="bookResultMap">
+        <id column="book_id" property="bookId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="book_publisher" property="bookPublisher"/>
+        <result column="book_author" property="bookAuthor"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="bookResultMap">
+        SELECT
+            book_id, book_name, book_publisher, book_author
+        FROM
+            Book
+    </select>
+
+    <select id="findById" parameterType="Int" resultMap="bookResultMap">
+        SELECT
+            book_id, book_name, book_publisher, book_author
+        FROM
+            Book
+        WHERE
+            book_id = #{bookId}
+    </select>
+
+    <select id="save" parameterType="map" resultType="Integer">
+        INSERT INTO Book (book_name, book_publisher, book_author)
+        VALUES (#{bookName}, #{bookPublisher}, #{bookAuthor})
+        RETURNING book_id
+    </select>
+
+    <update id="updateById" parameterType="map">
+        UPDATE Book
+        SET book_name = #{bookName},
+            book_publisher = #{bookPublisher},
+            book_author = #{bookAuthor}
+        WHERE book_id = #{bookId}
+    </update>
+
+    <delete id="deleteById" parameterType="map">
+        DELETE FROM Book
+        WHERE book_id = #{bookId}
+    </delete>
+</mapper>
