@@ -17,4 +17,13 @@
         FROM
             Book
     </select>
+
+    <select id="findById" parameterType="Int" resultMap="bookResultMap">
+        SELECT
+            book_id, book_name, book_publisher, book_author
+        FROM
+            Book
+        WHERE
+            book_id = #{bookId}
+    </select>
 </mapper>

@@ -15,4 +15,8 @@ public class BookService {
     public List<BookDto> getBooks() {
         return bookMapper.findAll();
     }
+
+    public BookDto getBook(Integer bookId) {
+        return bookMapper.findById(bookId);
+    }
 }
