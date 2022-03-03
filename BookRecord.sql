@@ -29,11 +29,11 @@ CREATE TABLE User_Book
 
 ALTER TABLE User_Book
     ADD CONSTRAINT FK_User_Book_user_id_User_user_id FOREIGN KEY (user_id)
-        REFERENCES User (user_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+        REFERENCES User (user_id) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 ALTER TABLE User_Book
     ADD CONSTRAINT FK_User_Book_book_id_Book_book_id FOREIGN KEY (book_id)
-        REFERENCES Book (book_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+        REFERENCES Book (book_id) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 INSERT INTO User(user_name)
 VALUES("김진홍");

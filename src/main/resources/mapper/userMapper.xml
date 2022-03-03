@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kim.jinhong.BookRecord.mapper.UserMapper">
+    <resultMap type="UserDto" id="userResultMap">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <collection property="books" column="user_id" javaType="java.util.List"
+                    ofType="BookDto">
+            <id column="book_id" property="bookId"></id>
+            <result column="book_name" property="bookName"></result>
+            <result column="book_publisher" property="bookPublisher"></result>
+            <result column="book_author" property="bookAuthor"></result>
+        </collection>
+    </resultMap>
+
+    <select id="findById" parameterType="Int" resultMap="userResultMap">
+        SELECT
+            User.user_id, User.user_name, Book.Book_id, Book.Book_name, Book.Book_publisher, Book. Book_author
+        FROM
+            User
+                LEFT JOIN User_Book ON User_Book.user_id = User.user_id
+                JOIN Book ON User_Book.book_id = Book.book_id
+        WHERE
+            User.user_id = #{id}
+    </select>
+
+    <select id="save" parameterType="map" resultType="Integer">
+        INSERT INTO User (user_name)
+        VALUES (#{userName})
+        RETURNING user_id
+    </select>
+</mapper>
